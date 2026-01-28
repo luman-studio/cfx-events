@@ -1,0 +1,50 @@
+{
+  "name": "cfx-events",
+  "displayName": "CFX Events Navigation",
+  "description": "Go to Definition, Find References, and Peek for FiveM/RedM events (TriggerEvent, RegisterNetEvent, etc.)",
+  "version": "1.0.0",
+  "publisher": "LumanStudio",
+  "author": {
+    "name": "LumanStudio"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "fivem",
+    "redm",
+    "cfx",
+    "lua",
+    "events",
+    "TriggerEvent",
+    "RegisterNetEvent",
+    "AddEventHandler",
+    "gta",
+    "rdr2"
+  ],
+  "activationEvents": [
+    "onLanguage:lua"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cfx-events.reindex",
+        "title": "CFX Events: Reindex Events"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luman-studio/cfx-events"
+  },
+  "bugs": {
+    "url": "https://github.com/luman-studio/cfx-events/issues"
+  },
+  "homepage": "https://github.com/luman-studio/cfx-events#readme"
+}

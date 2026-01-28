@@ -2,7 +2,7 @@
   "name": "cfx-events",
   "displayName": "CFX Events Navigation",
   "description": "Go to Definition, Find References, and Peek for FiveM/RedM events (TriggerEvent, RegisterNetEvent, etc.)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "LumanStudio",
   "author": {
     "name": "LumanStudio"

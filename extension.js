@@ -251,45 +251,6 @@ class EventHoverProvider {
   }
 }
 
-/**
- * Document Link Provider - Highlights full event string on Ctrl+hover
- * Does NOT set target - lets DefinitionProvider handle the click
- */
-class EventLinkProvider {
-  provideDocumentLinks(document) {
-    const links = [];
-    const lines = document.getText().split('\n');
-
-    lines.forEach((line, lineIndex) => {
-      for (const pattern of ALL_PATTERNS) {
-        pattern.lastIndex = 0;
-        let match;
-        while ((match = pattern.exec(line)) !== null) {
-          const eventName = match[1];
-          const quoteChar = match[0].includes("'") ? "'" : '"';
-          const eventStart = line.indexOf(quoteChar + eventName + quoteChar, match.index);
-          const startChar = eventStart + 1;
-          const endChar = startChar + eventName.length;
-
-          const link = new vscode.DocumentLink(
-            new vscode.Range(lineIndex, startChar, lineIndex, endChar)
-          );
-          // No target set - this makes VS Code fall back to DefinitionProvider
-          link.tooltip = `${eventName} - Ctrl+Click to see all locations`;
-          links.push(link);
-        }
-      }
-    });
-
-    return links;
-  }
-
-  // Don't resolve - let DefinitionProvider handle it
-  resolveDocumentLink(link) {
-    return undefined;
-  }
-}
-
 function activate(context) {
   console.log('CFX Events extension activated');
   buildIndex();
@@ -301,7 +262,6 @@ function activate(context) {
     vscode.languages.registerReferenceProvider(luaSelector, new EventReferenceProvider()),
     vscode.languages.registerHoverProvider(luaSelector, new EventHoverProvider()),
     vscode.languages.registerDocumentHighlightProvider(luaSelector, new EventHighlightProvider()),
-    vscode.languages.registerDocumentLinkProvider(luaSelector, new EventLinkProvider()),
   );
 
   context.subscriptions.push(

@@ -320,6 +320,7 @@ function activate(context) {
   const watcher = vscode.workspace.createFileSystemWatcher('**/*.lua');
   watcher.onDidCreate(() => setTimeout(() => buildIndex(), 1000));
   watcher.onDidDelete(() => setTimeout(() => buildIndex(), 1000));
+  watcher.onDidChange(() => setTimeout(() => buildIndex(), 1000));
   context.subscriptions.push(watcher);
 }
 

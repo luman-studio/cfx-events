@@ -1,5 +1,7 @@
 # CFX Events Navigation
 
+![Demo](media/demo.gif)
+
 Navigate FiveM/RedM events like regular functions. **Ctrl+Click** on any event string to see all handlers and triggers in a peek view.
 
 ## Features
